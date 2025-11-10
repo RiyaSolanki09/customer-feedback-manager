@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Customer Feedback</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+  <style>
+    /* Smooth background */
+    body {
+      background: linear-gradient(135deg, #f0f4ff, #d6e4ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Feedback card styling */
+    .feedback-card {
+      background: #ffffff;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 520px;
+      height: 560px; /* fixed height for vertical centering effect */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* centers everything inside vertically */
+      padding: 2rem;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #0d6efd;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      text-align: center;
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 1.2rem;
+    }
+
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid #ced4da;
+      width: 100%;
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+      border: none;
+      border-radius: 10px;
+      padding: 0.75rem;
+      font-weight: 600;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.03);
+      background: linear-gradient(90deg, #6610f2, #0d6efd);
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c757d;
+      margin-top: 1.2rem;
+    }
+
+    @media (max-height: 600px) {
+      .feedback-card {
+        height: auto;
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="feedback-card">
+    <h2>💬 Submit Your Feedback</h2>
+    <form th:action="@{/submit}" th:object="${feedback}" method="post">
+      <!-- Customer Name -->
+      <div class="form-group">
+        <label for="customerName" class="form-label">Your Name</label>
+        <input type="text" id="customerName" th:field="*{customerName}"
+          class="form-control" placeholder="Enter your full name" required />
+      </div>
+
+      <!-- Rating -->
+      <div class="form-group">
+        <label for="rating" class="form-label">Rating (1 to 5)</label>
+        <input type="number" id="rating" th:field="*{rating}"
+          min="1" max="5" class="form-control" placeholder="Enter a rating between 1 and 5" required />
+      </div>
+
+      <!-- Feedback -->
+      <div class="form-group">
+        <label for="content" class="form-label">Feedback Content</label>
+        <textarea id="content" th:field="*{content}" rows="4"
+          class="form-control" placeholder="Write your feedback here..." required></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary mt-2">🚀 Submit Feedback</button>
+    </form>
+
+    <p class="footer-note">We appreciate your time and support 💙</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submission Success</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #00b09b, #96c93d);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    .success-card {
+      background: #ffffff;
+      color: #212529;
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      max-width: 520px;
+      animation: fadeUp 0.9s ease-in-out;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .success-icon {
+      width: 90px;
+      height: 90px;
+      color: #00c851;
+      margin-bottom: 1.4rem;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      font-weight: 700;
+      color: #00c851;
+      font-size: 2rem;
+    }
+
+    .lead {
+      color: #555;
+      font-size: 1.05rem;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00c851, transparent);
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 12px;
+      padding: 0.8rem 1.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+    }
+
+    .btn-warning {
+      background: linear-gradient(90deg, #ffbb33, #ff8800);
+      color: #212529;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #e9ecef;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="success-card mx-auto">
+      <!-- Success Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+           class="bi bi-check-circle-fill success-icon" viewBox="0 0 16 16">
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.497 5.384 7.307a.75.75 0 1 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.08-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+      </svg>
+
+      <!-- Success Message -->
+      <h1 class="mb-3">Submission Successful!</h1>
+      <p class="lead mb-4">
+        🎉 Thank you for your feedback! Your response has been securely stored.
+      </p>
+
+      <hr />
+
+      <!-- Action Buttons -->
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a th:href="@{/}" class="btn btn-primary btn-lg">
+          ➕ Submit Another
+        </a>
+        <a th:href="@{/admin/feedback}" class="btn btn-warning btn-lg">
+          🔐 Admin Access
+        </a>
+      </div>
+    </div>
+
+    <p class="footer-note">
+      💚 We appreciate your time and trust — your input helps us grow.
+    </p>
+  </div>
+</body>
+</html>

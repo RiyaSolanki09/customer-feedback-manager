@@ -1,0 +1,29 @@
+# .gitignore
+
+# Maven
+/target/
+
+# Eclipse / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+/bin/
+
+# CRITICAL ECLIPSE FILES (must be ignored)
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+
+# Windows
+Thumbs.db
+
+# Sensitive Config (crucial for GitHub)
+# The application.properties file is NOT ignored because it's required for setup.
+# IMPORTANT: Ensure it contains only non-sensitive test data!
+
+# Operating System Files
+.DS_Store
