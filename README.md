@@ -81,4 +81,3 @@ This project is open-source and available under the MIT License.
 
 ---
 
-*(You can now copy this content and paste it into the `README.md` file in your project directory, commit the change, and push it to GitHub.)*
